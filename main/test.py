@@ -86,6 +86,8 @@ def test_model(model, data, fpath, tstamp = 'no_time', batch_size = 128, return_
 			pred = pred[~np.isnan(true)]
 			true = true[~np.isnan(true)]
 
+			print('{}:'.format(set_label))
+
 			# For TOX21
 			AUC = 'N/A'
 			if len(set(list(true))) <= 2:
@@ -105,6 +107,7 @@ def test_model(model, data, fpath, tstamp = 'no_time', batch_size = 128, return_
 				plt.legend(loc = "lower right")
 				plt.savefig(test_fpath + ' {} ROC.png'.format(set_label), bbox_inches = 'tight')
 				plt.clf()
+				print('  AUC = {}'.format(AUC))
 
 			min_y = np.min((true, pred))
 			max_y = np.max((true, pred))
@@ -115,7 +118,6 @@ def test_model(model, data, fpath, tstamp = 'no_time', batch_size = 128, return_
 			(r2p, ap) = stats.linreg(pred, true) # observed v predicted
 
 			# Print
-			print('{}:'.format(set_label))
 			print('  mse = {}, mae = {}'.format(mse, mae))
 			if verbose:
 				print('  q = {}'.format(q))
@@ -198,8 +200,9 @@ def test_model(model, data, fpath, tstamp = 'no_time', batch_size = 128, return_
 		if type(y_test[0]) != type(0.): 
 			num_targets = len(y_test[0])
 			print('Number of targets: {}'.format(num_targets))
+			test_MSE = 0.
 			for i in range(num_targets):
-				test_MSE = parity_plot([x[i] for x in y_test], [x[0, i] for x in y_test_pred], 'test - ' + y_label[i])
+				test_MSE += parity_plot([x[i] for x in y_test], [x[0, i] for x in y_test_pred], 'test - ' + y_label[i])
 		else:
 			test_MSE = parity_plot(y_test, y_test_pred, 'test')
 
