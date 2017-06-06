@@ -1,6 +1,6 @@
 from __future__ import print_function
 import os
-from conv_qsar.main.data import get_data_full
+from conv_qsar_fast.main.data import get_data_full
 
 
 '''
@@ -29,6 +29,8 @@ if __name__ == '__main__':
 		'bradley',
 		'tox21',
 		'tox21-test',
+		'tox21-traintest',
+		'tox21-eval',
 	]
 
 	for j, dataset in enumerate(datasets):

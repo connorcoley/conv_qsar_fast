@@ -1,6 +1,6 @@
 from __future__ import print_function
-from conv_qsar.utils.parsing import input_to_bool
-from conv_qsar.utils.parse_cfg import read_config
+from conv_qsar_fast.utils.parsing import input_to_bool
+from conv_qsar_fast.utils.parse_cfg import read_config
 import conv_qsar.utils.reset_layers as reset_layers
 import rdkit.Chem as Chem
 import numpy as np
@@ -10,9 +10,8 @@ import sys
 import os
 import time
 
-# from conv_qsar.main.core import build_model, train_model, save_model
-from conv_qsar.main.test import test_model, test_embeddings_demo
-from conv_qsar.main.data import get_data_full
+from conv_qsar_fast.main.test import test_model, test_embeddings_demo
+from conv_qsar_fast.main.data import get_data_full
 
 if __name__ == '__main__':
 	if len(sys.argv) < 2:

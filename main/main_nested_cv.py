@@ -386,4 +386,4 @@ if __name__ == '__main__':
 
 	p = Pool(len(all_cv_folds))
 	print('Starting multiprocessing pool')
-	p.map(do_a_single_fold, all_cv_folds) # only do first one for now
+	p.map(do_a_single_fold, all_cv_folds)

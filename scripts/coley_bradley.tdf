@@ -1178,7 +1178,7 @@ N#CCc1cccc(CC#N)c1	33.0
 O=C(/C=C/c1ccccc1)OCc1ccccc1	35.0
 CC(C)=CC=C(C)C	13.0
 OCc1ccc(Cl)cc1	71.0
-C1CCC2CCCCC2C1	-37.5
+C1CC[C@H]2CCCC[C@H]2C1	-43.0
 FC(F)(F)CC(F)(F)F	-98.0
 COC(=O)c1ccc(Cl)cc1	44.0
 O=[N+]([O-])c1cccc(C(F)(F)F)c1	-5.0
@@ -1864,6 +1864,7 @@ NC(=O)c1ccccc1	127.0
 N#Cc1ccccc1N	48.0
 O=C1CSC(=O)N1	125.0
 Nn1cnnc1	86.0
+C1CC[C@H]2CCCC[C@@H]2C1	-32.0
 CC(C)(C)C(=O)CC#N	68.0
 CCCCCCc1ccc(O)cc1O	65.0
 CCCCCCC	-91.0
