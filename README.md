@@ -17,7 +17,7 @@ This code implements the tensor-based convolutional embedding strategy described
 
 Models are built, trained, and tested with the command
 ```
-python conv_qsar/main/main_cv.py conv_qsar/inputs/<input_file>.cfg
+python conv_qsar_fast/main/main_cv.py conv_qsar_fast/inputs/<input_file>.cfg
 ```
 
 Numerous example input files, corresponding the models described in __placeholder__ are included in `inputs`. These include models to be trained on full datasets, 5-fold CVs with internal validation and early stopping, 5-fold CVs without internal validation, models initialized with weights from other trained models, and multi-task models predicting on multiple data sets. Note that when using multi-task models, the `output_size` must be increased and the `loss` function must be `custom` to ensure `NaN` values are filtered out if not all inputs x have the full set of outputs y.
@@ -35,7 +35,7 @@ Because certain entries could not be unambiguously resolved into chemical struct
 ## Model interpretation
 This version of the code contains the general method of non-linear model interpretation of assigning individual atom and bond attributes to their average value in the molecular tensor representation. The extent to which this hurts performance is indicative of how dependent a trained model has become on that atom/bond feature. As long as the configuration file defines a model which loads previously-trained weights, the testing routine is performed by
 ```
-python conv_qsar/main/test_index_removal.py conv_qsar/inputs/<input_file>.cfg
+python conv_qsar_fast/main/test_index_removal.py conv_qsar_fast/inputs/<input_file>.cfg
 ```
 It is assumed that the trained model used molecular_attributes, as the indices for removal are hard-coded into this script.
 
