@@ -165,6 +165,8 @@ def build_model(embedding_size = 512, lr = 0.01, optimizer = 'adam', depth = 2,
 
 	else:
 		FPs = Input(shape = (512,), name = "input fingerprint")
+		dummy1 = Input(shape = (None, None), name = "dummy1")
+		dummy2 = Input(shape = (None, None), name = "dummy2")
 
 	# # Are we using a convolutional embedding or a fingerprint representation?
 	# if type(use_fp) == type(None): # normal mode, use convolution
@@ -198,7 +200,7 @@ def build_model(embedding_size = 512, lr = 0.01, optimizer = 'adam', depth = 2,
 		model = Model(input = [mat_features, mat_adjacency, mat_specialbondtypes], 
 			output = [ypred])
 	else:
-		model = Model(input = [FPs], 
+		model = Model(input = [FPs, dummy1, dummy2], 
 			output = [ypred])
 
 	if verbose: model.summary()
